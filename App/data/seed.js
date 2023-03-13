@@ -1,7 +1,7 @@
 //seed empty database here????
 
-import mongoose from "../utils/connection";
-import Character from "../models/CharacterSchema";
+
+import Character from "../models/CharacterSchema.js";
 
 async function seedEmptyCharacters () {
     await Character.deleteMany({})

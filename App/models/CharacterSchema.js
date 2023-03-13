@@ -1,6 +1,6 @@
 //schema model for fetch random character model
 
-import mongoose from "mongoose";
+import mongoose from "../utils/connection.js";
 
 const characterSchema = new mongoose.Schema({
     name: String,
