@@ -7,3 +7,5 @@ async function seedEmptyCharacters () {
     await Character.deleteMany({})
     await Character.create({})
 }
+
+seedEmptyCharacters()
