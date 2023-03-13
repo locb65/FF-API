@@ -1,3 +1,5 @@
+//schema model for fetch random character model
+
 import mongoose from "mongoose";
 
 const characterSchema = new mongoose.Schema({
@@ -12,4 +14,3 @@ const characterSchema = new mongoose.Schema({
 export default mongoose.model("Character", characterSchema)
 
 
-//fetch request populates json data according to schema
