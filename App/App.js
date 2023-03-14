@@ -1,17 +1,25 @@
 import express from "express";
-import fetchCharacter from "./data/seed.js";
+// import fetchCharacter from "./data/seed.js";
 import axios from "axios";
 
 const app = express()
+app.use(express.json());
 
-
-app.get("/", async(req, res)=>{
-        fetchCharacter()
-        const newCharacter = fetchCharacter()
-        res.json(fetchCharacter())
+   
+    app.get("/", async(req, res)=>{
+        const newCharacter = await axios.get("https://www.moogleapi.com/api/v1/characters/random");
+        req.body
+        res.json(newCharacter)
      }
+    )
+
+// app.get("/", async(req, res)=>{
+//         fetchCharacter()
+//         const newCharacter = fetchCharacter()
+//         res.json(fetchCharacter())
+//      }
      
-)
+// )
 // app.get("/Teams", async (req, res)=>{
 //     const Team1 = aysnc (() => {
 //         await fetch("https://www.moogleapi.com/api/v1/characters/random")
