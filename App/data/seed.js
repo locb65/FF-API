@@ -16,3 +16,5 @@ async function seedEmptyCharacters () {
 }
 
 seedEmptyCharacters()
+
+export default fetchCharacter
