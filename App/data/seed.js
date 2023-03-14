@@ -1,7 +1,14 @@
 //seed empty database here????
-
-
 import Character from "../models/CharacterSchema.js";
+import axios from "axios";
+
+const fetchCharacter = async() =>{
+   const newCharacter = await axios.get("https://www.moogleapi.com/api/v1/characters/random")
+   console.log(newCharacter)
+}
+
+fetchCharacter()
+
 
 async function seedEmptyCharacters () {
     await Character.deleteMany({})
