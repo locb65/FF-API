@@ -4,7 +4,8 @@ import axios from "axios";
 
 const fetchCharacter = async() =>{
    const newCharacter = await axios.get("https://www.moogleapi.com/api/v1/characters/random")
-   console.log(newCharacter)
+   return newCharacter.data;
+   console.log(newCharacter.data);
    await Character.create(newCharacter.data)
 }
 
