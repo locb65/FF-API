@@ -5,16 +5,18 @@
 
  //seed blank databse to mongodb
  
- 
- //First Get request to create teams       
-        
+         
         //API that does not have data preloaded
 
             //need to make character schema to Get Raw JSon of random character
             //create get request to pull 1 random character
+                //Above this is done
              //cross check character with DB to see if they exist
+                //need to adjust axios get request to check if exists in database
                     //if not seed to database
                     //if so skip top part
+
+ //First Get request to create teams       
 
             
         // then create get request to moogleAPI to pull 6 random characters//JAavscript code split into 2 teams
