@@ -6,20 +6,18 @@ const app = express()
 app.use(express.json());
 
    
-    app.get("/", async(req, res)=>{
-        const newCharacter = await axios.get("https://www.moogleapi.com/api/v1/characters/random");
-        return res.json(newCharacter.data);
+    // app.get("/character", async(req, res)=>{
+    //     const newCharacter = await axios.get("https://www.moogleapi.com/api/v1/characters/random");
+    //     return res.json(newCharacter.data);
 
+    //  }
+    // )
+
+app.get("/character", async(req, res)=>{
+ return res.json(await fetchCharacter());
      }
-    )
-
-// app.get("/", async(req, res)=>{
-//         fetchCharacter()
-//         const newCharacter = fetchCharacter()
-//         res.json(fetchCharacter())
-//      }
      
-// )
+)
 // app.get("/Teams", async (req, res)=>{
 //     const Team1 = aysnc (() => {
 //         await fetch("https://www.moogleapi.com/api/v1/characters/random")
