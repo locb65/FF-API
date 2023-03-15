@@ -36,6 +36,17 @@ app.post("/character", async(req, res)=>{
     res.json(newCharacter);
 })
 
+app.put("/character/:id", async(req, res)=>{
+    // const id = { _id: req.params.id};
+    const updateCharacter = await Character.findOneAndUpdate(
+        {_id: req.params.id},
+        req.body,
+        {new: true}
+        );
+        res.json(updateCharacter);
+})
+
+
 // app.get("/Teams", async (req, res)=>{
 //     const Team1 = aysnc (() => {
 //         await fetch("https://www.moogleapi.com/api/v1/characters/random")
