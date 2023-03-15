@@ -29,4 +29,8 @@
 //Step 2: Post request to cast vote on winning team
 
         //Post request => Make a function to iterate through teams for Each Character number of matches ++
+        //Need to make a function to iterate through teams for Each Character number of wins ++
+        //Need to make a function to iterate through teams for Each Character number of losses ++
 
+
+//Step 3: implement full CRUD functionality for characters.
