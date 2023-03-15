@@ -30,19 +30,25 @@ const fetchCharacter = async() =>{
             // console.log(team)
             // return team
          }
-      return await Character.findOneAndUpdate(filter,{wins: newCharacter.data.wins + 1});
+         //increment wins prototype code...../not working
+      return await Character.findOneAndUpdate(newCharacter.data, {numberOfMatches:  + 1});
    }
    
 }
 // fetchCharacter()
 
 
-
-async function seedEmptyCharacters () {
+const seedEmptyCharacters = async () =>{
+   const allCharacters = await axios.get("https://www.moogleapi.com/api/v1/characters/");
     await Character.deleteMany({})
-    // await Character.create({})
+    await Character.create(allCharacters.data)
+    .then(characters => {
+        characters.forEach(character => {
+         Character.findOneAndUpdate({name: character.description}, {numberOfMatches:  + 1})
+         character.save()
+    })
+})
 }
-
 seedEmptyCharacters()
 
 

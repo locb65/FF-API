@@ -13,13 +13,12 @@ const characterSchema = new mongoose.Schema({
     origin: String,
     description: String,
     // UniqueString:String  
-    numberOfMatches: [
-        {
-            wins: Number,
-            losses:Number,
-            ties: Number,
-        }
-    ],
+    numberOfMatches: [Number],
+        // {
+        //     wins: Number,
+        //     losses:Number,
+        //     ties: Number,
+        // }],
     stats: [],
     // UniqueString:String
 })
