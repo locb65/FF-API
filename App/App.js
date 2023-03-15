@@ -25,6 +25,13 @@ app.get("/character/:id", async(req, res)=>{
     const findCharacter = await Character.findById(id);
     res.json(findCharacter);
 })
+
+app.get("/characters/name/:name", async(req, res)=>{
+    const characterName = req.params.name;
+    const findCharacter = await Character.find({name: characterName});;
+    res.json(findCharacter);
+})
+
 // app.get("/Teams", async (req, res)=>{
 //     const Team1 = aysnc (() => {
 //         await fetch("https://www.moogleapi.com/api/v1/characters/random")
