@@ -17,7 +17,6 @@ app.use(express.json());
 app.get("/character", async(req, res)=>{
  return res.json(await fetchCharacter());
      }
-     
 )
 
 app.get("/character/:id", async(req, res)=>{
@@ -26,10 +25,15 @@ app.get("/character/:id", async(req, res)=>{
     res.json(findCharacter);
 })
 
-app.get("/characters/name/:name", async(req, res)=>{
+app.get("/character/name/:name", async(req, res)=>{
     const characterName = req.params.name;
     const findCharacter = await Character.find({name: characterName});;
     res.json(findCharacter);
+})
+
+app.post("/character", async(req, res)=>{
+    const newCharacter = await Character.create(req.body);
+    res.json(newCharacter);
 })
 
 // app.get("/Teams", async (req, res)=>{
