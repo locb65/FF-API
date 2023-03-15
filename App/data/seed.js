@@ -18,18 +18,19 @@ const fetchCharacter = async() =>{
          //need conditional to check if character exists in database
          console.log(newCharacter.data)
 
-         const findExisting = await Character.findOne({name: newCharacter.data.name})
+         const findExisting = await Character.findOne({name: newCharacter.data.description})
 
       //    console.log(Character.find({name: newCharacter.data.name}))
 
          if(findExisting === null ){
 
-
-            team.push(createCharacter)
-            console.log(team)
-            return team
+            return createCharacter;
+            // createCharacter
+            // team.push(createCharacter)
+            // console.log(team)
+            // return team
          }
-      return findExisting;
+      return await Character.findOneAndUpdate(filter,{wins: newCharacter.data.wins + 1});
    }
    
 }

@@ -16,7 +16,8 @@
                     //if not seed to database
                     //if so skip top part
 
- //First Get request to create teams       
+ //First Get request to create teams   
+    //Attempt failed to create teams. Need to fix.
 
             
         // then create get request to moogleAPI to pull 6 random characters//JAavscript code split into 2 teams
