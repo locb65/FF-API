@@ -1,6 +1,7 @@
 import express from "express";
 import fetchCharacter from "./data/seed.js";
 import axios from "axios";
+import Character from "./models/CharacterSchema.js"
 
 const app = express()
 app.use(express.json());
@@ -18,6 +19,12 @@ app.get("/character", async(req, res)=>{
      }
      
 )
+
+app.get("/character/:id", async(req, res)=>{
+    const id = req.params.id;
+    const findCharacter = await Character.findById(id);
+    res.json(findCharacter);
+})
 // app.get("/Teams", async (req, res)=>{
 //     const Team1 = aysnc (() => {
 //         await fetch("https://www.moogleapi.com/api/v1/characters/random")
