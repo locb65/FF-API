@@ -1,6 +1,7 @@
 //seed empty database here????
 import Character from "../models/CharacterSchema.js";
 import axios from "axios";
+import Teams from "../models/TeamSchema.js";
 
 // const initializeCharacter = (character) => {
 //    character = 0;
@@ -50,15 +51,20 @@ const createTeam = async() =>{
             newCharacter.data.totalLosses = 0;
 
             team.push(await Character.create(newCharacter.data));
+            console.log(newCharacter.data)
+            // await Character.create(newCharacter.data);
             // teamArr.push(team)
          }else {
             console.log(findExisting)
+            // findExisting;
             //teamSchema.create(
             team.push(findExisting)
          }
          //increment wins prototype code...../not working
-   }  
-   return team
+   } 
+   // console.log(team) 
+   // return team
+   return await Teams.create(team);
 }
 // fetchCharacter()
 
@@ -71,7 +77,8 @@ const createTeams= async () => {
 
 const seedEmptyCharacters = async () =>{
    // const allCharacters = await axios.get("https://www.moogleapi.com/api/v1/characters/");
-    await Character.deleteMan;(allCharacters.data)
+    await Character.deleteMany()
+    await Teams.deleteMany()
 //     .then(characters => {
 //         characters.forEach(character => {
 //          Character.findOneAndUpdate({name: character.description}, :  + 1})
