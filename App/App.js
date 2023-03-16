@@ -37,8 +37,13 @@ app.get("/character/name/:name", async(req, res)=>{
     const findCharacter = await Character.find({name: characterName});;
     res.json(findCharacter);
 })
+app.get("/character", async(req, res)=>{
+    return res.json(await fetchCharacter());
+        }
+   )
+   
 
-app.post("/teams", async(req, res)=>{
+app.post("/character", async(req, res)=>{
     const newCharacter = await Character.create(req.body);
     res.json(newCharacter);
 })
@@ -47,15 +52,15 @@ app.put("/character/:id", async(req, res)=>{
     // const id = { _id: req.params.id};
     const updateCharacter = await Character.findOneAndUpdate(
         {_id: req.params.id},
-        req.body,
+        // req.body,
         {new: true}
         );
         res.json(updateCharacter);
 })
 
-app.post((req, res)=>
-{
-    //iterate teams
-})
+// app.put("/team/coinflip", async(req, res)=>{
+
+// })
+
 
 app.listen(3000)

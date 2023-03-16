@@ -3,7 +3,7 @@ import Character from "../models/CharacterSchema.js";
 import axios from "axios";
 
 const initializeCharacter = (character) => {
-   character.numberOfMatches = 0;
+   character = 0;
    return character
 }
 // teams schema
@@ -16,9 +16,11 @@ const fetchCharacter = async () =>{
    const findExisting = await Character.findOne({description: newCharacter.data.description});
 
    if(findExisting === null ){  
-      newCharacter.data.numberOfMatches = 0;
+      newCharacter.data.totalMatches = 0;
+      newCharacter.data.totalWins = 0;
+      newCharacter.data.totalLosses = 0;
       return await Character.create(newCharacter.data);
-}
+   }  
 return findExisting;
 }
 
@@ -40,7 +42,9 @@ const fetchTeam = async() =>{
 
          if(findExisting === null ){
             // const initializeCharacter = initializeCharacter(newCharacter.data)
-            newCharacter.data.numberOfMatches = 0;
+            newCharacter.data.totalMatches = 0;
+            newCharacter.data.totalWins = 0;
+            newCharacter.data.totalLosses = 0;
 
             team.push(await Character.create(newCharacter.data));
             // teamArr.push(team)
@@ -68,13 +72,27 @@ const seedEmptyCharacters = async () =>{
 //     await Character.create(allCharacters.data)
 //     .then(characters => {
 //         characters.forEach(character => {
-//          Character.findOneAndUpdate({name: character.description}, {numberOfMatches:  + 1})
+//          Character.findOneAndUpdate({name: character.description}, :  + 1})
 //          character.save()
 //     })
 // })
 }
-seedEmptyCharacters()
+// seedEmptyCharacters()
 
+
+// const coinflip = async() => {
+//    // const teams = fetchTeams()
+//    const randomWinner = Math.round(Math.random() * 1)
+//    if (randomWinner === 0) {
+//       console.log("teamOne wins")
+//    }
+//    else {
+//       console.log("teamOne wins")
+//    }
+//    console.log(randomWinner)
+// }
+
+// coinflip()
 
 
 export {fetchCharacter, fetchTeams}

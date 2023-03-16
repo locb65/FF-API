@@ -1,6 +1,10 @@
 //schema model for fetch random character model
 
 import mongoose from "../utils/connection.js";
+// const matchesSchema = new mongoose.Schema({
+//     total: Number,
+//     win
+// })
 
 const characterSchema = new mongoose.Schema({
     name: String,
@@ -13,12 +17,9 @@ const characterSchema = new mongoose.Schema({
     origin: String,
     description: String,
     // UniqueString:String  
-    numberOfMatches: Number,
-        // {
-        //     wins: Number,
-        //     losses:Number,
-        //     ties: Number,
-        // }],
+    totalMatches: Number,
+    totalWins: Number,
+    totalLosses:Number,
     stats: [],
     // UniqueString:String
 })
