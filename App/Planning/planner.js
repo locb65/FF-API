@@ -28,6 +28,11 @@
         //Need to make a function to iterate through teams for Each Character number of losses ++
 
 
+        //need to change post request to create data for each character in each team
+
+        //need to change current get request to just read and write data for each character
+        
+
 //Step 3: implement full CRUD functionality for characters.
         //Need to make get request to pull characters by name
         //Need to make get request to pull characters by id

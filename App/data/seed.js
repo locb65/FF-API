@@ -2,15 +2,16 @@
 import Character from "../models/CharacterSchema.js";
 import axios from "axios";
 
-const initializeCharacter = (character) => {
-   character = 0;
-   return character
-}
+// const initializeCharacter = (character) => {
+//    character = 0;
+//    return character
+// }
 // teams schema
 
 // const teamArr = [];
 
-const fetchCharacter = async () =>{
+
+const createCharacter = async () =>{
    const newCharacter = await axios.get("https://www.moogleapi.com/api/v1/characters/random");
    console.log(newCharacter.data);
    const findExisting = await Character.findOne({description: newCharacter.data.description});
@@ -24,7 +25,9 @@ const fetchCharacter = async () =>{
 return findExisting;
 }
 
-const fetchTeam = async() =>{
+
+const createTeam = async() =>{
+
    
    const team = []
    let maxTeamNumber = 3
@@ -60,16 +63,15 @@ const fetchTeam = async() =>{
 // fetchCharacter()
 
 
-const fetchTeams= async () => {
-   const teamOne = await fetchTeam()
-   const teamTwo = await fetchTeam()
+const createTeams= async () => {
+   const teamOne = await createTeam()
+   const teamTwo = await createTeam()
    return {teamOne, teamTwo}
 }
 
 const seedEmptyCharacters = async () =>{
    // const allCharacters = await axios.get("https://www.moogleapi.com/api/v1/characters/");
-    await Character.deleteMany({})
-//     await Character.create(allCharacters.data)
+    await Character.deleteMan;(allCharacters.data)
 //     .then(characters => {
 //         characters.forEach(character => {
 //          Character.findOneAndUpdate({name: character.description}, :  + 1})
@@ -81,7 +83,7 @@ const seedEmptyCharacters = async () =>{
 
 
 // const coinflip = async() => {
-//    // const teams = fetchTeams()
+//    // const teams = creats()
 //    const randomWinner = Math.round(Math.random() * 1)
 //    if (randomWinner === 0) {
 //       console.log("teamOne wins")
@@ -95,4 +97,4 @@ const seedEmptyCharacters = async () =>{
 // coinflip()
 
 
-export {fetchCharacter, fetchTeams}
+export { createTeams, createCharacter, createTeam }
