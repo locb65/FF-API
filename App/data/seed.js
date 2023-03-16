@@ -2,6 +2,10 @@
 import Character from "../models/CharacterSchema.js";
 import axios from "axios";
 
+const initializeCharacter = (character) => {
+   character.numberOfMatches = 0;
+   return character
+}
 
 const fetchTeam = async() =>{
    
@@ -20,6 +24,8 @@ const fetchTeam = async() =>{
       //    console.log(Character.find({name: newCharacter.data.name}))
 
          if(findExisting === null ){
+            // const initializeCharacter = initializeCharacter(newCharacter.data)
+            newCharacter.data.numberOfMatches = 0;
 
             team.push(await Character.create(newCharacter.data));
 
