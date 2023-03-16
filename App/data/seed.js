@@ -6,6 +6,21 @@ const initializeCharacter = (character) => {
    character.numberOfMatches = 0;
    return character
 }
+// teams schema
+
+// const teamArr = [];
+
+const fetchCharacter = async () =>{
+   const newCharacter = await axios.get("https://www.moogleapi.com/api/v1/characters/random");
+   console.log(newCharacter.data);
+   const findExisting = await Character.findOne({description: newCharacter.data.description});
+
+   if(findExisting === null ){  
+      newCharacter.data.numberOfMatches = 0;
+      return await Character.create(newCharacter.data);
+}
+return findExisting;
+}
 
 const fetchTeam = async() =>{
    
@@ -19,7 +34,7 @@ const fetchTeam = async() =>{
          //need conditional to check if character exists in database
          console.log(newCharacter.data)
 
-         const findExisting = await Character.findOne({name: newCharacter.data.description})
+         const findExisting = await Character.findOne({description: newCharacter.data.description})
 
       //    console.log(Character.find({name: newCharacter.data.name}))
 
@@ -28,10 +43,10 @@ const fetchTeam = async() =>{
             newCharacter.data.numberOfMatches = 0;
 
             team.push(await Character.create(newCharacter.data));
-
+            // teamArr.push(team)
          }else {
             console.log(findExisting)
-
+            //teamSchema.create(
             team.push(findExisting)
          }
          //increment wins prototype code...../not working
@@ -48,17 +63,18 @@ const fetchTeams= async () => {
 }
 
 const seedEmptyCharacters = async () =>{
-   const allCharacters = await axios.get("https://www.moogleapi.com/api/v1/characters/");
+   // const allCharacters = await axios.get("https://www.moogleapi.com/api/v1/characters/");
     await Character.deleteMany({})
-    await Character.create(allCharacters.data)
-    .then(characters => {
-        characters.forEach(character => {
-         Character.findOneAndUpdate({name: character.description}, {numberOfMatches:  + 1})
-         character.save()
-    })
-})
+//     await Character.create(allCharacters.data)
+//     .then(characters => {
+//         characters.forEach(character => {
+//          Character.findOneAndUpdate({name: character.description}, {numberOfMatches:  + 1})
+//          character.save()
+//     })
+// })
 }
 seedEmptyCharacters()
 
 
-export default fetchTeams
+
+export {fetchCharacter, fetchTeams}
