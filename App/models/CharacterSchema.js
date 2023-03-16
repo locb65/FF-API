@@ -13,7 +13,7 @@ const characterSchema = new mongoose.Schema({
     origin: String,
     description: String,
     // UniqueString:String  
-    numberOfMatches: [Number],
+    numberOfMatches: Number,
         // {
         //     wins: Number,
         //     losses:Number,

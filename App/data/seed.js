@@ -3,8 +3,7 @@ import Character from "../models/CharacterSchema.js";
 import axios from "axios";
 
 
-
-const fetchCharacter = async() =>{
+const fetchTeam = async() =>{
    
    const team = []
    let maxTeamNumber = 3
@@ -12,8 +11,6 @@ const fetchCharacter = async() =>{
    for (let i =0; i <= maxTeamNumber; i++){
 
          const newCharacter = await axios.get("https://www.moogleapi.com/api/v1/characters/random")
-
-         const createCharacter = Character.create(newCharacter.data);
 
          //need conditional to check if character exists in database
          console.log(newCharacter.data)
@@ -24,19 +21,25 @@ const fetchCharacter = async() =>{
 
          if(findExisting === null ){
 
-            return createCharacter;
-            // createCharacter
-            // team.push(createCharacter)
-            // console.log(team)
-            // return team
+            team.push(await Character.create(newCharacter.data));
+
+         }else {
+            console.log(findExisting)
+
+            team.push(findExisting)
          }
          //increment wins prototype code...../not working
-      return await Character.findOneAndUpdate(newCharacter.data, {numberOfMatches:  + 1});
-   }
-   
+   }  
+   return team
 }
 // fetchCharacter()
 
+
+const fetchTeams= async () => {
+   const teamOne = await fetchTeam()
+   const teamTwo = await fetchTeam()
+   return {teamOne, teamTwo}
+}
 
 const seedEmptyCharacters = async () =>{
    const allCharacters = await axios.get("https://www.moogleapi.com/api/v1/characters/");
@@ -52,4 +55,4 @@ const seedEmptyCharacters = async () =>{
 seedEmptyCharacters()
 
 
-export default fetchCharacter
+export default fetchTeams

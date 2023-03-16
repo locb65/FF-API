@@ -1,5 +1,5 @@
 import express from "express";
-import fetchCharacter from "./data/seed.js";
+import  fetchTeams  from "./data/seed.js";
 import axios from "axios";
 import Character from "./models/CharacterSchema.js"
 
@@ -15,7 +15,7 @@ app.use(express.json());
     // )
 
 app.get("/character", async(req, res)=>{
- return res.json(await fetchCharacter());
+ return res.json(await fetchTeams());
      }
 )
 

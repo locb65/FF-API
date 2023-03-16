@@ -5,7 +5,6 @@
 
  //seed blank databse to mongodb
  
-         
         //API that does not have data preloaded
 
             //need to make character schema to Get Raw JSon of random character
@@ -19,11 +18,7 @@
  //First Get request to create teams   
     //Attempt failed to create teams. Need to fix.
 
-            
         // then create get request to moogleAPI to pull 6 random characters//JAavscript code split into 2 teams
-
-
-
 
 
 //Step 2: Post request to cast vote on winning team
@@ -34,3 +29,11 @@
 
 
 //Step 3: implement full CRUD functionality for characters.
+        //Need to make get request to pull characters by name
+        //Need to make get request to pull characters by id
+        //Need to make post request to create character by id
+        //Need to make put request to update character by id
+        //Need to make delete request to delete character by id
+
+
+//Step 4: implement full CRUD functionality for teams.
