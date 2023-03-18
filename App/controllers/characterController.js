@@ -15,48 +15,30 @@ const createCharacter = async () =>{
  return findExisting;
  }
  
- 
  const createTeam = async() =>{
- 
-    
     const team = []
     let maxTeamNumber = 3
-    //for loop to make 3 random characters into a team
     for (let i =0; i <= maxTeamNumber; i++){
- 
           const newCharacter = await axios.get("https://www.moogleapi.com/api/v1/characters/random")
- 
-          //need conditional to check if character exists in database
           console.log(newCharacter.data)
- 
           const findExisting = await Character.findOne({description: newCharacter.data.description})
- 
-       //    console.log(Character.find({name: newCharacter.data.name}))
- 
           if(findExisting === null ){
-             // const initializeCharacter = initializeCharacter(newCharacter.data)
              newCharacter.data.totalMatches = 0;
              newCharacter.data.totalWins = 0;
              newCharacter.data.totalLosses = 0;
- 
-             // team.push(await Character.create(newCharacter.data));
-             console.log(newCharacter.data)
-             return await Character.create(newCharacter.data);
-             // teamArr.push(team)
+             
+             team.push(await Character.create(newCharacter.data));
+
           }else {
              console.log(findExisting)
-             //teamSchema.create(
              team.push(findExisting)
           }
-          //increment wins prototype code...../not working
     } 
-    // console.log(team) 
     return team
-    // return Teams.create(team)
+    console.log(team) 
  }
- // fetchCharacter()
- 
- 
+
+
  const createTeams= async () => {
     const teamOne = await createTeam()
     const teamTwo = await createTeam()

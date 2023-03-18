@@ -12,12 +12,11 @@ const jwt = () => {
     });
 }
 
-const isRevoked = async (req, payload, done) => {
-    const user = await userAuthenicate.findById(payload.sub);
+const isRevoked = async (req, token) => {
+    const user = await userAuthenicate.getUser(token.payload.sub);
 
     if(!user) {
-        return done(null, true);
+        return true;
     }
-    done();
 }
 export default jwt;
