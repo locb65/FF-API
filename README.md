@@ -71,7 +71,7 @@ This API has an authentication feature that must be done before using the API.
 4. Find a way to adjust stats for all characters as [Moogle API](https://www.moogleapi.com/swagger/index.html) seems to be missing stats for most characters.
 5. Allow Game to be determined based off of team total stats instead of a coinflip.
 
-
-# Thank You for checking this out! Feel free to leave feedback and suggestions. I am also open to collaborations!
-
+-------------
+## Thank You for checking this out! Feel free to leave feedback and suggestions. I am also open to collaborations!
+--------------
 ## Repo URL: https://github.com/locb65/FFX-API
