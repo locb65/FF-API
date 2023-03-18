@@ -50,21 +50,20 @@ const createTeam = async() =>{
             newCharacter.data.totalWins = 0;
             newCharacter.data.totalLosses = 0;
 
-            team.push(await Character.create(newCharacter.data));
+            // team.push(await Character.create(newCharacter.data));
             console.log(newCharacter.data)
-            // await Character.create(newCharacter.data);
+            return await Character.create(newCharacter.data);
             // teamArr.push(team)
          }else {
             console.log(findExisting)
-            // findExisting;
             //teamSchema.create(
             team.push(findExisting)
          }
          //increment wins prototype code...../not working
    } 
    // console.log(team) 
-   // return team
-   return await Teams.create(team);
+   return team
+   // return Teams.create(team)
 }
 // fetchCharacter()
 
@@ -86,7 +85,7 @@ const seedEmptyCharacters = async () =>{
 //     })
 // })
 }
-// seedEmptyCharacters()
+seedEmptyCharacters()
 
 
 // const coinflip = async() => {
