@@ -1,11 +1,14 @@
 import express from "express";
-import  { createTeam, createTeams, createCharacter } from "./data/seed.js";
+import  { createTeam, createTeams, createCharacter } from "./data/seedCharacter.js";
 import axios from "axios";
 import Character from "./models/CharacterSchema.js"
+import Users from "./models/UserSchema.js"
 
 
 const app = express()
 app.use(express.json());
+
+
 
    
     // app.get("/character", async(req, res)=>{
@@ -61,6 +64,25 @@ app.post ("/twoteams", async(req, res)=>{
         }
    )
    
+app.get("/allUsers", async(req, res)=>{
+    return res.json(await Users.find())})
+
+app.get("/user/:id", async(req, res)=>{
+    const id = req.params.id;
+    const findUser = await Users.findById(id)
+    res.json(findUser);});
+
+app.post("/user", async(req, res)=>{
+    const newUser = await Users.create(req.body);
+    res.json(newUser)});
+
+app.put("/user/:id", async(req, res)=>{
+    const id = req.params.id;
+    const updateUser = await Users.findOneAndUpdate(
+        {_id: id},
+        // req.body,
+        {new: true}
+        )});  
 // app.put("/team/coinflip", async(req, res)=>{
 
 // })

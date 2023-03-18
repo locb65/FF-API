@@ -76,8 +76,11 @@ const createTeams= async () => {
 
 const seedEmptyCharacters = async () =>{
    // const allCharacters = await axios.get("https://www.moogleapi.com/api/v1/characters/");
-    await Character.deleteMany()
-    await Teams.deleteMany()
+      await Character.deleteMany()
+   //  await Teams.deleteMany()
+      await Character.create({})
+      // await Teams.create({})
+
 //     .then(characters => {
 //         characters.forEach(character => {
 //          Character.findOneAndUpdate({name: character.description}, :  + 1})
@@ -85,7 +88,7 @@ const seedEmptyCharacters = async () =>{
 //     })
 // })
 }
-seedEmptyCharacters()
+// seedEmptyCharacters()
 
 
 // const coinflip = async() => {
