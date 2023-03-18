@@ -1,6 +1,6 @@
 import expressjwt from 'express-jwt';
 import config from './config.json';
-import userAuthenicate from '../userAuthenicate/userAuthenicate.js';
+import userAuthenicate from '../userAuthenicate/userAuthenticate.js';
 
 const jwt = () => {
     const { secret } = config.secret;

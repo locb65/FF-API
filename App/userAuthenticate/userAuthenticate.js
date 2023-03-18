@@ -1,6 +1,6 @@
-import config from './config';
+import config from './config.json';
 import jwt from 'jsonwebtoken';
-import Users from '../models/UserSchema';
+import Users from '../models/UserSchema.js';
 import bcrypt from 'bcryptjs';
 
 
