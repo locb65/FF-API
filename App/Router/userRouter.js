@@ -1,15 +1,9 @@
 import express from 'express';
-import userAuthenticate from './userAuthenticate.js';
+import userAuthenticate from '../controllers/userAuthenticateController.js';
 
-const router = express.Router();
+const userRouter = express.Router();
 
-router.post('/authenticate', authenticate);
-router.post('/register', register);
-router.get('/', getAllUsers)
-router.get('/current', getCurrentUser)
-router.get('/:id', getUserById)
-router.put('/:id', updateUser)
-router.delete('/:id', deleteUser)
+
 
 const authenticate = async (req, res, next) => {
     userAuthenticate.authenticate(req.body)
@@ -37,7 +31,7 @@ const getCurrentUser = async (req, res, next) => {
 }
 
 const getUserById = async (req, res, next) => {
-    userAuthenticate.getUserById(req.params.id)
+    userAuthenticate.getUser(req.params.id)
         .then(user => res.json(user))
         .catch(err => next(err));
 }
@@ -54,6 +48,13 @@ const deleteUser = async (req, res, next) => {
         .catch(err => next(err));
 }
 
+userRouter.post('/authenticate', authenticate);
+userRouter.post('/register', register);
+userRouter.get('/', getAllUsers)
+userRouter.get('/current', getCurrentUser)
+userRouter.get('/:id', getUserById)
+userRouter.put('/:id', updateUser)
+userRouter.delete('/:id', deleteUser)
 
 
-export default router;
+export default userRouter;

@@ -1,4 +1,4 @@
-import config from './config.json';
+import config from '../config.json' assert { type: 'json' };
 import jwt from 'jsonwebtoken';
 import Users from '../models/UserSchema.js';
 import bcrypt from 'bcryptjs';
@@ -19,7 +19,7 @@ const getAllUsers = async () => {
     return Users.find({});
 }
 
-const getUserById = async(id) =>{
+const getUser = async(id) =>{
     return Users.findById(id);
 }
 
@@ -47,8 +47,9 @@ const updateUser = async(id, userParam) =>{
     Object.assign(user, userParam);
     return await user.save();
 }
+
 const deleteUser = async(id) =>{
-    await Users.findByIdAndRemove(id);
+    await Users.findByIdAndDelete(id);
 }
 
-export default { authenticate, getAllUsers, getUserById, createUser, updateUser, deleteUser }
+export default { authenticate, getAllUsers, getUser, createUser, updateUser, deleteUser }
