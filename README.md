@@ -74,4 +74,4 @@ This API has an authentication feature that must be done before using the API.
 -------------
 ## Thank You for checking this out! Feel free to leave feedback and suggestions. I am also open to collaborations!
 --------------
-## Repo URL: https://github.com/locb65/FFX-API
+## Repo URL: https://github.com/locb65/FF-API
