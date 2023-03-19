@@ -16,7 +16,7 @@ const createCharacter = async () =>{
  
  const createTeam = async() =>{
     const team = []
-    let maxTeamNumber = 3
+    let maxTeamNumber = 2
     for (let i =0; i <= maxTeamNumber; i++){
           const newCharacter = await axios.get("https://www.moogleapi.com/api/v1/characters/random")
           const findExisting = await Character.findOne({description: newCharacter.data.description})
