@@ -13,7 +13,7 @@ const authenticate = async (req, res, next) => {
 
 const register = async (req, res, next) => {
     userAuthenticate.createUser(req.body)
-        .then(() =>res.json({}))
+        .then(user => res.json(user))
         .catch(err => next(err));
 }
 
