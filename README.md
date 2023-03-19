@@ -1,4 +1,4 @@
-# FFX-API
+# FF-API
 
 Welcome to a Final Fantasy REST API created using [MoogleAPI](https://www.moogleapi.com/swagger/index.html).
 
