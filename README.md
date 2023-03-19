@@ -5,17 +5,20 @@ Welcome to a Final Fantasy REST API created using [MoogleAPI](https://www.moogle
 * This REST API is developed with the mindset of being applied to a simple game environment in the near future.
 
 ## Frameworks/Languages/Dependencies/Servers Used
-* Javascript
-    * bcryptjs || ```npm i bcryptjs```
-* JSONWebToken || ```npm i jsonwebtoken```
-* ExpressJS
-    * express-jwt || ```npm i express-jwt```
-* MongoDB 
-* Mongoose || ```npm i mongoose```
-* Node 
-    * nodemon || ```npm i nodemon```
-    * cors || ```npm i cors```
-* Axios || ```npm i axios```
+
+|Javascript| Install|
+|----------|-------|
+|bcryptjs | ```npm i bcryptjs```|
+|JSONWebToken | ```npm i jsonwebtoken```|
+|ExpressJS|
+|express-jwt | ```npm i express-jwt```|
+|MongoDB ||
+|Mongoose | ```npm i mongoose```|
+|Node |
+|nodemon | ```npm i nodemon```|
+|cors | ```npm i cors```|
+|Axios | ```npm i axios```|
+||
 
 ## The Basics
 
