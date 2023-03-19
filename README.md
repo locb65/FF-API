@@ -18,7 +18,7 @@ Welcome to a Final Fantasy REST API created using [MoogleAPI](https://www.moogle
 |nodemon | ```npm i nodemon```|
 |cors | ```npm i cors```|
 |Axios | ```npm i axios```|
-||
+
 
 ## The Basics
 
