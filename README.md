@@ -6,21 +6,62 @@ Welcome to a Final Fantasy REST API created using [MoogleAPI](https://www.moogle
 
 ## Frameworks/Languages/Dependencies/Servers Used
 
-|Javascript| Install|
+|Javascript| Install/version|
 |----------|-------|
 |bcryptjs | ```npm i bcryptjs```|
 |JSONWebToken | ```npm i jsonwebtoken```|
-|ExpressJS|
+|ExpressJS| ```npm i express```
 |express-jwt | ```npm i express-jwt```|
-|MongoDB ||
+|MongoDB | Community 6.0|
 |Mongoose | ```npm i mongoose```|
-|Node |
-|nodemon | ```npm i nodemon```|
+|Node |version 19.4.0
+|nodemon | ```npm i nodemon --save-dev```|
 |cors | ```npm i cors```|
 |Axios | ```npm i axios```|
 
+## User Authentication
 
-## The Basics
+|Method|Requests|Paths|
+|----|-----|-----------|
+|GET |all Users | "...```/users/register/```"|
+|GET |current User | "...```/users/```"|
+|GET |user by Id | "...```/users/<Id Here>```"|
+|POST |user to register | "...```/users/register/```"|
+|POST |user to get key | "...```/users/authenticate/```"|
+|PUT |update user by Id | "...```/users/<Id Here>```"|
+|DELETE |delete user by Id | "...```/users/<Id Here>```"|
+
+ ### Users and Authentication in-depth Details
+
+This API has an authentication feature that must be done before using the API. 
+* This is accomplished using espress-jwt and JSONWebToken for authentication.
+    * The users will also have Full CRUD and be stored in the mongoDB server.
+    * Users will have to have a webtoken before being able to access the Final Fantasy Characters.
+        * To do a new user must register using a POST request at route "...```/users/register/```".
+            * To do this in POSTman, you must change the tab to BODY, check raw, and change the type to JSON.
+            * This will create a new user and store it in mongoDB. 
+        * Users will then have to retrieve and authentication token with a Post Request from route "...```/users/authenticate/```". with the username and password provided in register request.
+            * To do this in POSTman, you must change the tab to BODY, check raw, and change the type to JSON.
+            * This will generate a new token for that user to use for 10 days.
+
+    * The Users collection in mongoDB will also have full CRUD functionality.
+
+* **Once a web token is provided you must change to the authorization tab in POSTman and click bearer token to be able to access the API.**
+
+
+## The Basics of FFX-API
+
+|Method|Request|Path|
+|-----|-------|---|
+|GET | all Characters |"...```/characters/all```"|
+|GET | character by Id | "...```/characters/<Id Here>```" |
+|POST | Single Character | "...```/characters```" |
+|POST | One team | "...```/characters/one-team```" |
+|POST | Two teams | "...```/characters/two-teams```" |
+|PUT | Update Character by Id | "...```/characters/<Id Here>```" |
+|DELETE | Delete Character by Id | "...```/characters/<Id Here>```" |
+
+### Characters in-detph Details
 
 This API is set up to do Full CRUD operations using GET, POST, PUT, and DELETE requests.
 * GET reads and write from the database stored in mongoDB for all characters or by Id and returns the data in json format
@@ -42,29 +83,7 @@ This API is set up to do Full CRUD operations using GET, POST, PUT, and DELETE r
 * route is "...```/characters/<Id here>```".
 
 
-## User Authentication
 
-This API has an authentication feature that must be done before using the API. 
-* This is accomplished using espress-jwt and JSONWebToken for authentication.
-    * The users will also have Full CRUD and be stored in the mongoDB server.
-    * Users will have to have a webtoken before being able to access the Final Fantasy Characters.
-        * To do a new user must register using a POST request at route "...```/users/register/```".
-            * This will create a new user and store it in mongoDB. 
-        * Users will then have to retrieve and authentication token from route "...```/users/authenticate/```".
-            * This will generate a new token for that user to use for 10 days.
-
-    * The Users collection in mongoDB will also have full CRUD functionality.
-    * GET Routes are:
-        1. GET all users "...```/users```".
-        2. GET current user "...```/users/current/```".
-        3. GET users by Id "...```/users/<Id Here>```".
-    * POST Routes are:
-        1. POST register "...```/users/register/```".
-        2. POST authenticate "...```/users/authenticate/```".
-    * PUT Routes are:
-        1. PUT top update users "...```/users/<ID Here>```".
-    * DELETE Routes are:
-        1. DELETE users by ID "...```/users/<ID Here>```".
 
 ## Future Additions 
 

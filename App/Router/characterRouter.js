@@ -50,7 +50,7 @@ const deleteCharacter = async (req, res, next) => {
 }
 
 
-characterRouter.get("/", getAllCharacters);
+characterRouter.get("/all", getAllCharacters);
 characterRouter.get("/:id", getCharacter);
 characterRouter.post("/one-team", getOneTeam);
 characterRouter.post("/two-teams", getTwoTeams);

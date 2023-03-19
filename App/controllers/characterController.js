@@ -3,7 +3,6 @@ import axios from "axios";
 
 const createCharacter = async () =>{
     const newCharacter = await axios.get("https://www.moogleapi.com/api/v1/characters/random");
-    console.log(newCharacter.data);
     const findExisting = await Character.findOne({description: newCharacter.data.description});
  
     if(findExisting === null ){  
@@ -20,22 +19,19 @@ const createCharacter = async () =>{
     let maxTeamNumber = 3
     for (let i =0; i <= maxTeamNumber; i++){
           const newCharacter = await axios.get("https://www.moogleapi.com/api/v1/characters/random")
-          console.log(newCharacter.data)
           const findExisting = await Character.findOne({description: newCharacter.data.description})
           if(findExisting === null ){
              newCharacter.data.totalMatches = 0;
              newCharacter.data.totalWins = 0;
              newCharacter.data.totalLosses = 0;
              
-             team.push(await Character.create(newCharacter.data));
+               team.push(await Character.create(newCharacter.data));
 
           }else {
-             console.log(findExisting)
              team.push(findExisting)
           }
     } 
     return team
-    console.log(team) 
  }
 
 
