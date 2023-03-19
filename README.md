@@ -23,8 +23,8 @@ Welcome to a Final Fantasy REST API created using [MoogleAPI](https://www.moogle
 
 |Method|Requests|Paths|
 |----|-----|-----------|
-|GET |all Users | "...```/users/register/```"|
-|GET |current User | "...```/users/```"|
+|GET |all Users | "...```/users/```"|
+|GET |current User | "...```/users/current```"|
 |GET |user by Id | "...```/users/<Id Here>```"|
 |POST |user to register | "...```/users/register/```"|
 |POST |user to get key | "...```/users/authenticate/```"|
